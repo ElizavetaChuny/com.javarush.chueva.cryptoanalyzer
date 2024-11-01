@@ -20,7 +20,6 @@ public class CaesarCipher {
 
         String pathFile = scanner.nextLine();
         char[] readFile = fileManager.readFile(pathFile);
-        System.out.println(readFile);
 
         System.out.println("Введите значение ключа:");
         int key = 0;

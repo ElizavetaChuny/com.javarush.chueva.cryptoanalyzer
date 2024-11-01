@@ -13,7 +13,7 @@ public class FileManager {
         try (BufferedReader reader = Files.newBufferedReader(Path.of(filePath))){
             String line;
             while ((line = reader.readLine()) != null) {
-                text = text + line;
+                text = line;
             }
         } catch (FileNotFoundException ex) {
             System.out.println("File not found");

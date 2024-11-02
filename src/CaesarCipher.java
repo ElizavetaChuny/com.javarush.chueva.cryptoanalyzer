@@ -31,9 +31,11 @@ public class CaesarCipher {
 
         System.out.println("Проведм шивровку данных (Encryption)");
         String encryp = encryption.encryption(readFile, key);
+        System.out.println("Результат шифровки данных: " + encryp);
 
         System.out.println("Теперь расшифровку с помощью ключа");
         String decrKye = decryptionKey.decryptionKey(readFile, key);
+        System.out.println("Резальтат расшифровки данных с ключом: " + decrKye);
 
         System.out.println("Для расшифровки данных без ключа мне необходима ваша помощь");
         System.out.println("Выберите ключ значение которого является наиболле похожим на русские слова");
@@ -48,11 +50,14 @@ public class CaesarCipher {
             System.out.println("Неверное значение ключа.");
         }
         String bruteForceStr = decryptionBruteForce.resultBruteForce(readFile, codBruteForce);
+        System.out.println("Результат расшифровки методом Brute Force: " + bruteForceStr);
 
-        System.out.println(encryp);
-        System.out.println(decrKye);
-        System.out.println(bruteForceStr);
+        System.out.println("Введите путь где будет создан новый файл: ");
+        String path = scanner.nextLine();
 
+        System.out.println("Записываем полученную ранее информацию в новый файл");
+        fileManager.writeFile(path, encryp);
+        fileManager.writeFile(path, decrKye);
+        fileManager.writeFile(path, bruteForceStr);
     }
-
 }

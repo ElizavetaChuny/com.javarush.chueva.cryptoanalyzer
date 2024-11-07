@@ -40,14 +40,7 @@ public class FileManager {
     }
 
     public void writeFile(String pathFile, String resultCipher) throws IOException {
-        Path newFile = null;
-        try {
-            newFile = Files.createFile(Path.of(pathFile));
-        } catch (IOException e) {
-            System.out.println("Ошибка создания файла");
-            System.exit(0);
-        }
-
+        Path newFile = Path.of(pathFile);
         try {
             Files.writeString(newFile, resultCipher);
         } catch (IOException e) {

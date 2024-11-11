@@ -17,25 +17,14 @@ public class CaesarCipher {
         System.out.println("Доброго времени суток!");
         System.out.println("Работаем с шифром цезаря.");
 
+        int task = CaesarCipher.menu(0);
+
         System.out.println("Введите путь к файлу с которым небходимо будет произвести работу:");
         String pathFile = scanner.nextLine();
         char[] readFile = fileManager.readFile(pathFile);
 
         System.out.println("Введите путь к файлу, в который будет занесена полученная информация:");
         String path = scanner.nextLine();
-
-        System.out.println("1 - Зашифровать текст");
-        System.out.println("2 - Рассшифровать текст, используя ключ");
-        System.out.println("3 - Рассшифровать текст, не имея ключа");
-        System.out.println("Введите цифру задачи, которую необходимо будет совершить с текстом в файле");
-        int task = 0;
-        try {
-            task = scanner.nextInt();
-        } catch (InputMismatchException e) {
-            System.out.println("Введите целое чило (от 1 до 3 включитльно)");
-            System.exit(0);
-        }
-
 
         if (task == 1) {
             System.out.println("Введите значение ключа:");
@@ -86,6 +75,21 @@ public class CaesarCipher {
         } else {
             System.out.println("Не верное значение задачи!");
         }
-
     }
+
+    public static int menu (int task) throws IOException {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("1 - Зашифровать текст");
+        System.out.println("2 - Рассшифровать текст, используя ключ");
+        System.out.println("3 - Рассшифровать текст, не имея ключа");
+        System.out.println("Введите цифру задачи, которую необходимо будет совершить с текстом в файле");
+        try {
+            task = scanner.nextInt();
+        } catch (InputMismatchException e) {
+            System.out.println("Введите целое чило (от 1 до 3 включитльно)");
+            System.exit(0);
+        }
+        return task;
+    }
+
 }
